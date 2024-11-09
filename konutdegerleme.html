@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KONUT DEĞERLEME</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <meta content="noindex, nofollow" name="robots"/>
+</head>
+<body>
+  <div class="col-auto">
+    <h3 class="text-center">ZİRAAT BANKASI KONUT DEĞERLEME RAPORU</h3>
+    <ul class="nav" id="tabHeaders">
+      <li class="nav-item"> <button class="nav-link active" data-target="#adresBilgileri">Adres Bilgileri</button></li>
+      <li class="nav-item"> <button class="nav-link" data-target="#tapuBilgileri">Tapu Bilgileri</button> </li>
+      <li class="nav-item"> <button class="nav-link" data-target="#ulasimBilgileri">Ulaşım Bilgileri</button></li>
+      <li class="nav-item"> <button class="nav-link" data-target="#yasalkisitlama">Yasal Kısıtlamalar</button></li>
+      <li class="nav-item"> <button class="nav-link" data-target="#imarBilgileri">İmar Bilgileri</button></li>
+      <li class="nav-item"> <button class="nav-link" data-target="#ruhsatBilgileri">Ruhsat Bilgileri</button></li>
+      <li class="nav-item"> <button class="nav-link" data-target="#anagayrimenkul">Ana Gayrimenkul Özellikleri</button></li>
+      <li class="nav-item"> <button class="nav-link" data-target="#bbn">BB Özellikleri</button></li>
+      <li class="nav-item"> <button class="nav-link" data-target="#degerleme">Değerleme</button></li>
+      <li class="nav-item"> <button class="nav-link" data-target="#emsalBilgileri">Emsaller</button></li>
+      <li class="nav-item"> <button class="nav-link" data-target="#sonuc">Sonuç</button></li>
+    </ul>
+    
+    <div class="tab-content mt-4 w-7">
+      <!-- Adres Bilgileri Sekmesi -->
+      <div class="tab-pane fade show active" id="adresBilgileri">
+        <h4>Taşınmazın Adres Bilgileri</h4>
+        <form class="form-group" id="adresForm">
+            <input class="form-control mt-2" id="il" placeholder="İl Giriniz" required="" type="text"/>
+            <input class="form-control mt-2" id="ilce" placeholder="İle Giriniz" required="" type="text"/>
+            <input class="form-control mt-2" id="mahalle" placeholder="Mahalle Giriniz" required="" type="text"/>
+            <input class="form-control mt-2" id="cadde" placeholder="Cadde Giriniz" required="" type="text"/>
+            <input class="form-control mt-2" id="sokak" placeholder="Sokak Giriniz" required="" type="text"/>
+            <input class="form-control mt-2" id="apartman" placeholder="Apartman/Site Adı Giriniz" required="" type="text"/>
+            <input class="form-control mt-2" id="blok" placeholder="Blok Giriniz" required="" type="text"/>
+            <input class="form-control mt-2" id="disKapi" placeholder="Dış Kapı No Giriniz" required="" type="text"/>
+            <input class="form-control mt-2" id="icKapi" placeholder="İç Kapı No Giriniz" required="" type="text"/>
+            <input class="form-control mt-2" id="uavt" placeholder="Uavt Adres Kodu Giriniz" required="" type="text"/>
+ 
+          <button class="btn btn-primary mt-3" type="button" id="saveAdres">Kaydet</button>
+        </form>
+      </div>
+       <!-- Ulasım Bilgileri Sekmesi -->
+       <div class="tab-pane fade" id="ulasimBilgileri">
+        <h4>Tapu Bilgileri Formu</h4>
+        <form class="form-group" id="tapuForm">
+          <textarea class="form-control mt-2" id="ulasim" placeholder="Taşınmaza Ait Ulaşım Tarifi Yapınız" rows="10"></textarea>
+          <textarea class="form-control mt-2" id="cevre" placeholder="Taşınmaza Ait Çevresel Özelliklerini Yazınız" rows="5"></textarea>
+          <button class="btn btn-primary mt-3" type="button" id="saveulasim">Kaydet</button>
+        </form>
+      </div>
+
+      <!-- Tapu Bilgileri Sekmesi -->
+      <div class="tab-pane fade" id="tapuBilgileri">
+        <h4>Tapu Bilgileri Formu</h4>
+        <form class="form-group" id="tapuForm">
+          <input class="form-control" id="tapuIl" placeholder="İl Giriniz" required="" type="text"/>
+          <input class="form-control mt-2" id="tapuIlce" placeholder="İlçe Giriniz" required="" type="text"/>
+          <input class="form-control mt-2" id="tapuMahalle" placeholder="Mahalle Giriniz" required="" type="text"/>
+          <input class="form-control mt-2" id="mevki" placeholder="Mevki Giriniz" required="" type="text"/>
+          <input class="form-control mt-2" id="ada" placeholder="Ada Numarası Giriniz" required="" type="text"/>
+          <input class="form-control mt-2" id="parsel" placeholder="Parsel Giriniz" required="" type="text"/>
+          <input class="form-control mt-2" id="yuzolcumu" placeholder="Yüzölçümü Giriniz" required="" type="text"/>
+          <input class="form-control mt-2" id="tapuBlok" placeholder="Blok Giriniz" required="" type="text"/>
+          <input class="form-control mt-2" id="kat" placeholder="Kat Giriniz" required="" type="text"/>
+          <input class="form-control mt-2" id="bbn" placeholder="BBN Giriniz" required="" type="text"/>
+          <input class="form-control mt-2" id="nitelik" placeholder="Niteliğini Giriniz" required="" type="text"/>
+          <button class="btn btn-primary mt-3" type="button" id="saveTapu">Kaydet</button>
+        </form>
+      </div>
+      <div class="tab-pane fade" id="yasalkisitlama">
+        <h4>TAKBİS Alım Bilgisi</h4>
+        <form class="form-group" id="takbisForm">
+            <div class="row">
+                <div class="col-md-6"> <input class="form-control" id="yasaltarih" type="date" placeholder="Tarih" /> </div>
+                <div class="col-md-6"> <input class="form-control" id="yasaltime" type="time" placeholder="Saat" /></br> </div>
+                <div class="col-md-8"> <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" /> 
+                        <label class="form-check-label" for="defaultCheck1"> Tapu Kayıt Belgesinde herhangi bir takyidat bulunmamaktadır. </label> </div> </div>
+                <div class="col-md-8"> <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" />
+                        <label class="form-check-label" for="defaultCheck2"> Tapu Kayıt Belgesi Tapu Kütüğünde kontrol edilmemiştir. </label>  </div> </div>
+                
+                        <div class="col-md-6"> <button class="btn btn-primary mt-3" type="button" id="saveYasal">Kaydet</button> </div> </div>
+        </form>
+      
+        <h4 class="mt-4">Yasal Kısıtlama Girişi</h4>
+        <form class="form-group" id="yasalForm">
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="form-control" id="kisitTur" required>
+                        <option value="" disabled selected>Kısıtlama Türü</option>
+                        <option value="Beyan">Beyan</option>
+                        <option value="Şerh">Şerh</option>
+                        <option value="İrtifak">İrtifak</option>
+                        <option value="İcra-i Haciz">İcra-i Haciz</option>
+                        <option value="Kamu Haczi">Kamu Haczi</option>
+                        <option value="Diğer">Diğer</option>
+                    </select>
+                </div>
+                <div class="col-md-4"> <input class="form-control" id="kisittarih" type="date" placeholder="Kısıtlama Tarihi" /> </div>
+                <div class="col-md-4"> <input class="form-control" id="yevmiye1" placeholder="Yevmiye No Giriniz" required type="text" /> </div>
+                <div class="col-md-12 mt-2"> <textarea class="form-control" id="aciklama1" placeholder="Yasal Kısıtlama Açıklamasını Giriniz" rows="5"></textarea> </div>
+               
+                <div class="col-md-4 mt-3"> <button class="btn btn-primary" type="button" id="saveYasal1">Kaydet</button> </div> </div>
+        </form>
+      
+        <h4 class="mt-4">Rehin Girişi</h4>
+        <form class="form-group" id="rehinForm">
+            <div class="row">
+                <div class="col-md-4">  <input class="form-control" id="Rehin" placeholder="Rehin" required type="text" /> </div>
+                <div class="col-md-4">  <input class="form-control" id="RehinBanka" placeholder="Banka Adını Giriniz" required type="text" /> </div>
+                <div class="col-md-4">  <input class="form-control" id="RehinTutar" placeholder="Rehin Tutarını Giriniz" required type="text" /> </div>
+                <div class="col-md-4 mt-2"> <input class="form-control" id="RehinDerece" placeholder="Rehin Derecesini Giriniz (Örn:1/0 - 1/1 vb.)" required type="text" /></div> 
+                <div class="col-md-4 mt-2"> <input class="form-control" id="RehinTarih" type="date" placeholder="Rehin Tarihi" /> </div>
+                <div class="col-md-4 mt-2"> <input class="form-control" id="RehinYevmiye1" placeholder="Yevmiye No Giriniz" required type="text" /> </div>
+               
+                <div class="col-md-4 mt-3"> <button class="btn btn-primary" type="button" id="saveRehin">Kaydet</button> </div> </div>
+        </form>
+      </div>
+
+<!-- İmar Durum Bilgileri Sekmesi -->
+<div class="tab-pane fade" id="imarBilgileri">
+  <h4>İmar Durum Bilgi Girişi</h4>
+  <form class="form-group" id="imarForm"">
+      <div class="form-group">
+          <select class="form-control" id="imarBelediye" required>
+              <option value="" disabled selected>Belediye Adı Seçiniz</option>
+              <option value="Amasya Belediyesi">Amasya Belediyesi</option>
+              <option value="Merzifon Belediyesi">Merzifon Belediyesi</option>
+              <option value="Suluova Belediyesi">Suluova Belediyesi</option>
+              <option value="Taşova Belediyesi">Taşova Belediyesi</option>
+              <option value="Gümüşhaciköy Belediyesi">Gümüşhaciköy Belediyesi</option>
+              <option value="Göynücek Belediyesi">Göynücek Belediyesi</option>
+              <option value="Hamaözü Belediyesi">Hamaözü Belediyesi</option>
+          </select> 
+      </div>
+
+      <div class="form-group"> <input class="form-control" id="imarPlanAd" placeholder="İmar Plan Adını Yazınız" required type="text" /> </div>
+      <div class="form-group"> <input class="form-control" id="imarPlanTarih" placeholder="İmar Plan Tarihini Yazınız" required type="text" /> </div>
+      <div class="form-group">
+          <select class="form-control" id="imarYapilasma" required>
+              <option value="" disabled selected>Yapılaşma Durumunu Seçiniz</option>
+              <option value="Ayrık Nizam">Ayrık Nizam</option>
+              <option value="Bitişik Nizam">Bitişik Nizam</option>
+              <option value="Blok Nizam">Blok Nizam</option>
+              <option value="Ayrık-İkiz Nizam">Ayrık-İkiz Nizam</option>
+          </select>    </div>
+
+      <div class="form-group">
+          <select class="form-control" id="imarAlan" required>
+              <option value="" disabled selected>Yapılaşma Alanı Seçiniz</option>
+              <option value="Konut Alanı">Konut Alanı</option>
+              <option value="Ticaret Alanı">Ticaret Alanı</option>
+              <option value="Konut-Ticaret Alanı">Konut-Ticaret Alanı</option>
+              <option value="Ticaret-Turizm Alanı">Ticaret-Turizm Alanı</option>
+          </select>  </div>
+
+      <div class="form-group"> <input class="form-control" id="imarKat" placeholder="Kaç Kat İmarlı Yazınız" required type="number" min="1" /> </div>
+      <div class="form-group"> <input class="form-control" id="imarTaks" placeholder="TAKS - KAKS var ise Yazınız" required type="text" /> </div>
+
+      <div class="form-group"> <textarea class="form-control" id="imarAciklama" placeholder="İmar Açıklaması Yazınız" rows="5"></textarea> </div>
+      
+     <div class="form-group"> <button class="btn btn-primary" type="button" id="saveImar1">Kaydet</button>
+ 
+</div>
+  </form>
+</div>
+<!-- Ruhsat Ve Proje Bilgileri Sekmesi -->
+<div class="tab-pane fade" id="ruhsatBilgileri">
+    <h4>Ruhsat Bilgi Girişi</h4>
+    <form class="form-group" id="ruhsatForm">
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <select class="form-control" id="ruhsatCinsi" required>
+                    <option value="" disabled selected>Belge Türü Seçiniz</option>
+                    <option value="Yapı Ruhsatı">Yapı Ruhsatı</option>
+                    <option value="Tadilat Ruhsatı">Tadilat Ruhsatı</option>
+                    <option value="İsim Değişikliği Ruhsatı">İsim Değişikliği Ruhsatı</option>
+                    <option value="Yapı Kullanım İzin Belgesi">Yapı Kullanım İzin Belgesi</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4"> <input class="form-control" id="ruhsatTarih" type="date" placeholder="Tarih" /></div>
+            <div class="form-group col-md-4"> <input class="form-control" id="ruhsatNumarasi" placeholder="Ruhsat Numarası Giriniz" required type="text" /></div>
+        </div>
+        <div class="form-group">  <button class="btn btn-primary" type="button" id="ruhsatEkle" onclick="saveRuhsat()">Kaydet</button> </div>
+
+    </form>
+    <form class="form-group" id="ruhsatForm">
+        <h4>Diğer Ruhsat Bilgi Girişi</h4>
+        <div class="form-row">
+            <div class="form-group col-md-4"> <input class="form-control" id="ruhsatDiger" placeholder="Diğer Ruhsat Türü Giriniz" type="text" /></div>
+            <div class="form-group col-md-4"> <input class="form-control" id="ruhsatDigerTarih" type="date" placeholder="Tarih" /></div>
+            <div class="form-group col-md-4"> <input class="form-control" id="ruhsatDigerNumarasi" placeholder="Ruhsat Numarası Giriniz" type="text" /></div>
+        </div>
+        <div class="form-group">  <button class="btn btn-primary" type="button" id="ruhsatEkle1" onclick="saveRuhsat()">Kaydet</button> </div>
+    </form>
+    <form class="form-group" id="ruhsatForm">
+        <h4>Ruhsat İçerik Bilgi Girişi</h4>
+        <div class="form-row">
+            <div class="form-group col-md-4"> <input class="form-control" id="yolAlt" placeholder="Yol Kotu Altı " type="text" /></div>
+            <div class="form-group col-md-4"> <input class="form-control" id="yolüst" placeholder="Yol Kotu Üstü " type="text" /></div>
+            <div class="form-group col-md-4"> <input class="form-control" id="yoltoplam" placeholder=" Toplam Kaç Kat" type="text" /></div>
+            <div class="form-group col-md-4"> <input class="form-control" id="binatoplam" placeholder=" Bina Sayısı" type="text" /></div>
+            <div class="form-group col-md-4"> <input class="form-control" id="bbnadet" placeholder=" Bağımsız Bölüm Nitelik" type="text" /></div>
+            <div class="form-group col-md-4"> <input class="form-control" id="binaalan" placeholder=" Toplam Kullanım Alanı" type="text" /></div>
+
+            <div class="form-group">  <button class="btn btn-primary" type="button" id="ruhsatEkle" onclick="saveRuhsat()">Kaydet</button> </div>
+
+    </form> 
+</div>
+
+<form class="form-group" id="pojeForm">
+        <h4>Proje Bilgi Girişi</h4>
+        <div class="form-row">
+            <div class="form-group col-md-4"> <input class="form-control" id="projeTarihi" placeholder="Proje Tarihi Giriniz" required type="text" /> </div>
+            <div class="form-group col-md-4"> <input class="form-control" id="projeNumarasi" placeholder="Proje Numarası Giriniz" type="text" /> </div>
+            <div class="form-group col-md-4"> <input class="form-control" id="projeKurum" placeholder="Proje İncelenen Kurum Giriniz" type="text" /> </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>Taşınmaz Mimari Projesine Göre Konum Açısından Uyumlu mudur?</label>
+                <select class="form-control" name="konumUygunlugu" id="konumUygunlugu">
+                    <option value="evet">Evet</option>
+                    <option value="hayir">Hayır</option>
+                </select>
+            </div>
+            
+            <div class="form-group col-md-4">
+                <label>Taşınmaz Mimari Projesine Göre Alan Açısından Uyumlu mudur?</label>
+                <select class="form-control" name="AlanUygunlugu" id="AlanUygunlugu">
+                    <option value="evet">Evet</option>
+                    <option value="hayir">Hayır</option>
+                </select>
+            </div>
+            
+            <div class="form-group col-md-4">
+                <label>Taşınmaz Mimari Projesine Göre B. Bölüm Açısından Uyumlu mudur?</label>
+                <select class="form-control" name="BBUygunlugu" id="BBUygunlugu">
+                    <option value="evet">Evet</option>
+                    <option value="hayir">Hayır</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" id="aciklama1" placeholder="Proje İle İlgili Açıklamasını Giriniz" rows="5"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <div class="form-group">  <button class="btn btn-primary" type="button" id="projeEkle" onclick="saveRuhsat()">Kaydet</button> </div>
+        </div>
+    </form>
+</div>         
+
+<!-- Değerleme Bilgileri Sekmesi -->
+
+<div class="tab-pane fade" id="degerleme">
+  <h4>Değerleme Detayı Girişi</h4>
+  <form class="form-group" id="degerlemeForm">
+    <textarea class="form-control mt-2" id="degerlemeciklama1" placeholder="Değerleme Açıklamasını Giriniz" rows="10"></textarea>
+    <input class="form-control mt-2" id="yasaldeger" placeholder="Yasal Durumu Değeri Giriniz" required type="text" />
+    <input class="form-control mt-2" id="mevcutdeger" placeholder="Mevcut Durumu Değeri Giriniz" required type="text" />
+    <button class="btn btn-primary mt-3" type="button" id="saveEmsal">Kaydet</button>
+</form>
+</div> 
+<!-- Emsal Durum Bilgileri Sekmesi -->
+<div class="tab-pane fade" id="emsalBilgileri">
+  <h4>Emsal Bilgi Girişi</h4>
+  <form class="form-group" id="emsalForm">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <select class="form-control" id="EmsalDurum" required>
+          <option value="" disabled selected> Emsalin Durumunu Seçiniz </option>
+          <option value="Satılık">Satılık</option>
+          <option value="Kiralık">Kiralık</option>
+          <option value="Genel Beyan">Genel Beyan</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <select class="form-control" id="EmsalKim" required>
+          <option value="" disabled selected>Kimden</option>
+          <option value="Sahibinden">Sahibinden</option>
+          <option value="Emlak Ofisinden">Emlak Ofisinden</option>
+          <option value="Çevre Araştırması">Çevre Araştırması</option>
+        </select>
+      </div>
+      <div class="form-group col-md-4">
+        <input class="form-control" id="emsaltelefon" placeholder="Emsal Telefon Numarası Giriniz" required type="text" />
+      </div>
+      <div class="form-group col-md-4">
+        <input class="form-control" id="emsalkonum" placeholder="Emsal Konum Tarifi Yapınız" required type="text" />
+      </div>
+      <div class="form-group col-md-4">
+        <input class="form-control" id="emsalbinayas" placeholder="Emsal Kaç Yıllık Binada " required type="text" />
+      </div>
+      <div class="form-group col-md-4">
+        <input class="form-control" id="emsalkat" placeholder="Emsal Kaçıncı Katta Konumlu Yazınız " required type="text" />
+      </div>
+      <div class="form-group col-md-4">
+        <input class="form-control" id="emsaldaire" placeholder="Emsalin Oda Sayısını Yazınız" required type="text" />
+      </div>
+      <div class="form-group col-md-4">
+        <input class="form-control" id="emsalalan" placeholder="Emsalin Kullanım Alanını Giriniz" required type="text" />
+      </div>
+      <div class="form-group col-md-4">
+        <input class="form-control" id="emsalfiyat" placeholder="Emsalin Satış Fiyatını Giriniz" required type="text" />
+      </div>
+      <div class="form-group col-md-8"> <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="emsalCheck1" /> 
+        <label class="form-check-label" for="emsalCheck1"> Emsal taşınmazın satış fiyatı üzerinden pazarlığı mevcuttur. </label> </div> </div>
+        <div class="form-group col-md-8"> <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="emsalCheck2" />
+        <label class="form-check-label" for="emsalCheck2"> Emsal taşınmaz değerleme konusu taşınmaza göre avantajlı olup, şerefiyesi bir miktar yüksektir. </label>  </div> </div>
+        <div class="form-group col-md-8"> <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="emsalCheck3" />
+          <label class="form-check-label" for="emsalCheck3"> Emsal taşınmaz değerleme konusu taşınmaza göre dezavantajlı olup, şerefiyesi bir miktar düşüktür.. </label>  </div> </div>
+  
+      <div class="form-group col-md-12">
+        <textarea class="form-control" id="emsalaciklama1" placeholder="Emsalin Açıklamasını Giriniz" rows="5"></textarea>
+      </div>
+      
+      <div class="form-group col-md-2">
+        <input class="form-control" id="emsalsatisfiyat" placeholder="Emsalin Satış Fiyatını Giriniz" required type="text" />
+      </div>
+      <div class="form-group col-md-2">
+        <input class="form-control" id="emsalkulalan" placeholder="Emsalin Kullanım Alanı Giriniz" required type="text" />
+      </div>
+      <div class="form-group col-md-2">
+        <input class="form-control" id="emsalbirimalan" placeholder="Emsalin m2 Birim Fiyatı" required type="text" />
+      </div>
+      <div class="form-group col-md-2">
+        <input class="form-control" id="emsalpazarlik" placeholder="Emsalin Pazarlık Oranını Giriniz" required type="text" />
+      </div>
+      <div class="form-group col-md-2">
+      <input class="form-control"  id="serefiyeDegeri" placeholder="Şerefiye Değeri (+1 veya -1)" required type="number">
+    </div>
+      <div class="form-group col-md-2">
+        <input class="form-control" id="emsalsatisfiyat" placeholder="Emsalin NET m2 Birim Fiyatı" required type="text" />
+      </div>
+      <div class="form-group col-md-12">
+        <button class="btn btn-primary" type="button" id="saveEmsal1">Kaydet</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+         
+
+ <!-- Sonuç Sekmesi -->  
+ <div class="tab-pane fade" id="sonuc">  
+    <h4>Değerleme Raporu</h4>  
+    <div id="sonucArea">  
+      <h5>Adres Bilgileri:</h5>  
+      <div id="adresSonuclari"></div> 
+      <h5>Tapu Bilgileri:</h5>  
+      <div id="tapuSonuclari"></div> 
+      <h5>Ulaşım Bilgileri:</h5>  
+      <div id="ulasimSonuclari"></div> 
+      <h5>Yasal Kısıtlamalar Bilgileri:</h5>  
+      <div id="yasalSonuclari"></div>
+      <h5>İmar Bilgileri:</h5>  
+      <div id="imarSonuclari"></div>   
+      <h5>Ruhsat Bilgileri:</h5>  
+      <div id="ruhsatSonuclari"></div> 
+      <h5>Ana Gayrimenkul Bilgileri:</h5>  
+      <div id="anagayrimenkulSonuclari"></div>
+      <h5>Bağımsız Bölüm Bilgileri:</h5>  
+      <div id="bbnSonuclari"></div>
+      <h5>Değerleme Bilgileri:</h5>  
+      <div id="degerlemeSonuclari"></div>
+      <h5>Emsal Bilgileri:</h5>  
+      <div id="emsalSonuclari"></div>  
+    </div>  
+  </div>  
+
+  
+
+  <!-- Bootstrap & jQuery JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .nav-tabs .nav-link {
+      border: 1px solid #007bff;
+      border-radius: 20px;
+    }
+    .tab-content {
+      border: 1px solid #007bff;
+      border-radius: 0 0 5px 5px;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 5px;
+    }
+    h4 {
+      margin-bottom: 20px;
+    }
+  </style>
+<script src="java/adres.js"> </script>
+<script src="java/tapu.js"> </script>
+<script src="java/ulasim.js"> </script>
+<script src="java/yasal.js"> </script>
+<script src="java/imar.js"> </script>
+<script src="java/ruhsat.js"> </script>
+<script src="java/anagayrimenkul.js"> </script>
+<script src="java/bbn.js"> </script>
+<script src="java/deger.js"> </script>
+<script src="java/emsal.js"> </script>
+
+
+
+</body>
+</html>
